@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños</title>
+    <style>
+        /* Fondo negro puro e interfaz limpia */
+        body {
+            background-color: #0b0b0b;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* Contenedor de la Página 1 basado en tu libreta */
+        .container {
+            text-align: center;
+            position: relative;
+            max-width: 400px;
+            padding: 20px;
+        }
+
+        /* Título Happy Birthday */
+        h1 {
+            font-size: 2.8rem;
+            margin: 0;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* Fecha de cumpleaños 25/11 en la esquina superior derecha del título */
+        .date {
+            font-size: 1rem;
+            color: #ff4a75; /* Color tierno para el corazón y fecha */
+            display: inline-block;
+            vertical-align: super;
+            margin-left: 5px;
+        }
+
+        /* Contenedor del regalo y los adornos (corazones/estrellas) */
+        .gift-section {
+            position: relative;
+            margin: 50px auto;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* El regalo virtual con el Bobbing Effect (flotante) de tus notas */
+        .gift-box {
+            font-size: 5.5rem;
+            user-select: none;
+            animation: bobbing 2s ease-in-out infinite;
+        }
+
+        /* Adornos decorativos de tu dibujo (corazones y estrellas flotantes) */
+        .decor {
+            position: absolute;
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+        .decor.heart1 { top: 10px; left: -20px; animation: floatSlow 3s ease-in-out infinite alternate; }
+        .decor.star1 { top: 20px; right: -20px; animation: floatSlow 2.5s ease-in-out infinite alternate; }
+        .decor.heart2 { bottom: 20px; right: -10px; animation: floatSlow 3.5s ease-in-out infinite alternate; }
+        .decor.star2 { bottom: 10px; left: -10px; animation: floatSlow 2.8s ease-in-out infinite alternate; }
+
+        /* Botón CONTINUE con el Heartbeat Effect (latido) de tus notas */
+        .btn-continue {
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            padding: 12px 35px;
+            font-size: 1rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            border-radius: 30px;
+            cursor: pointer;
+            outline: none;
+            animation: heartbeat 1.5s infinite ease-in-out;
+            transition: all 0.3s ease;
+        }
+
+        /* Interacción al pasar el mouse */
+        .btn-continue:hover {
+            background-color: #ffffff;
+            color: #0b0b0b;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+        }
+
+        /* --- ANIMACIONES (CSS KEYFRAMES) --- */
+
+        /* Efecto flotante para el regalo (Bobbing Effect) */
+        @keyframes bobbing {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* Efecto latido para el botón (Heartbeat Effect) */
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.08); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.08); }
+            70% { transform: scale(1); }
+        }
+
+        /* Movimiento sutil para las estrellitas y corazones de los lados */
+        @keyframes floatSlow {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-8px) rotate(5deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Título y fecha exactos de tu libreta -->
+        <h1>Happy Birthday <span class="date">25/11 ❤️</span></h1>
+        
+        <!-- Zona del regalo con las estrellas y corazones que dibujaste alrededor -->
+        <div class="gift-section">
+            <span class="decor heart1">❤️</span>
+            <span class="decor star1">⭐</span>
+            
+            <div class="gift-box">🎁</div>
+            
+            <span class="decor heart2">❤️</span>
+            <span class="decor star2">⭐</span>
+        </div>
+
+        <!-- Botón de continuación -->
+        <button class="btn-continue" onclick="nextSection()">CONTINUE</button>
+    </div>
+
+    <script>
+        function nextSection() {
+            // Aquí agregaremos la lógica para pasar al Nivel 22 (Página 2) 
+            alert("¡Efecto de transición de TRON! Abriendo el NIVEL 22...");
+        }
+    </script>
+</body>
+</html>
