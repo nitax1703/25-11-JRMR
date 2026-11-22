@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solo es un recordatorio de todo lo que te amo. Gracias por existir. <3</title>
+    <title>Feliz Cumpleaños - Nivel 22</title>
     <style>
-        /* Fondo negro */
+        /* Configuración general de toda la página */
         body {
             background-color: #0b0b0b;
             color: #ffffff;
@@ -13,38 +13,42 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
-        /* Contenedor de la Página 1 */
-        .container {
+        /* Clase auxiliar para ocultar las pantallas que no están activas */
+        .oculto {
+            display: none !important;
+        }
+
+        /* =========================================
+           ESTILOS DE LA PÁGINA 1 (PORTADA)
+        ========================================= */
+        .portada {
             text-align: center;
             position: relative;
             max-width: 400px;
             padding: 20px;
         }
 
-        /* Título Happy Birthday */
-        h1 {
+        .portada h1 {
             font-size: 2.8rem;
             margin: 0;
             font-weight: 600;
             letter-spacing: 1px;
         }
 
-        /* Fecha de cumpleaños */
-        .date {
+        .fecha {
             font-size: 1rem;
-            color: #ff4a75; /* Color tierno para el corazón y fecha */
+            color: #ff4a75;
             display: inline-block;
             vertical-align: super;
             margin-left: 5px;
         }
 
-        /* Contenedor del regalo y los adornos */
-        .gift-section {
+        .zona-regalo {
             position: relative;
             margin: 50px auto;
             width: 150px;
@@ -54,26 +58,23 @@
             align-items: center;
         }
 
-        /* Bobbing Effect */
-        .gift-box {
+        .caja-regalo {
             font-size: 5.5rem;
             user-select: none;
-            animation: bobbing 2s ease-in-out infinite;
+            animation: flotar 2s ease-in-out infinite;
         }
 
-        /* Adornos decorativos */
-        .decor {
+        .adorno {
             position: absolute;
             font-size: 1.2rem;
             opacity: 0.8;
         }
-        .decor.heart1 { top: 10px; left: -20px; animation: floatSlow 3s ease-in-out infinite alternate; }
-        .decor.star1 { top: 20px; right: -20px; animation: floatSlow 2.5s ease-in-out infinite alternate; }
-        .decor.heart2 { bottom: 20px; right: -10px; animation: floatSlow 3.5s ease-in-out infinite alternate; }
-        .decor.star2 { bottom: 10px; left: -10px; animation: floatSlow 2.8s ease-in-out infinite alternate; }
+        .adorno.corazon1 { top: 10px; left: -20px; animation: flotarSuave 3s ease-in-out infinite alternate; }
+        .adorno.estrella1 { top: 20px; right: -20px; animation: flotarSuave 2.5s ease-in-out infinite alternate; }
+        .adorno.corazon2 { bottom: 20px; right: -10px; animation: flotarSuave 3.5s ease-in-out infinite alternate; }
+        .adorno.estrella2 { bottom: 10px; left: -10px; animation: flotarSuave 2.8s ease-in-out infinite alternate; }
 
-        /* Botón CONTINUE con el Heartbeat Effect */
-        .btn-continue {
+        .boton-continuar {
             background-color: transparent;
             color: #ffffff;
             border: 2px solid #ffffff;
@@ -84,31 +85,117 @@
             border-radius: 30px;
             cursor: pointer;
             outline: none;
-            animation: heartbeat 1.5s infinite ease-in-out;
+            animation: latido 1.5s infinite ease-in-out;
             transition: all 0.3s ease;
         }
 
-        /* Interacción al pasar el mouse */
-        .btn-continue:hover {
+        .boton-continuar:hover {
             background-color: #ffffff;
             color: #0b0b0b;
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
         }
 
-        /* --- ANIMACIONES (CSS KEYFRAMES) --- */
-
-        /* Efecto flotante para el regalo */
-        @keyframes bobbing {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            51% {
-                transform: translateY(-15px);
-            }
+        /* =========================================
+           ESTILOS DE LA PÁGINA 2 (BOCETO LIBRETA)
+        ========================================= */
+        .pantalla-2 {
+            width: 100%;
+            max-width: 1050px;
+            min-height: 100vh;
+            padding: 30px 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            animation: aparecer 0.8s ease-out;
         }
 
-        /* (Heartbeat Effect) */
-        @keyframes heartbeat {
+        .titulo-nivel {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .estructura-boceto {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .columna-auto, .columna-pista {
+            flex: 1;
+            min-width: 240px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Hace transparente el fondo negro de tus imágenes neón */
+        .imagen-neon {
+            width: 100%;
+            max-width: 340px;
+            height: auto;
+            mix-blend-mode: screen;
+        }
+
+        .columna-indice {
+            flex: 1;
+            min-width: 220px;
+            text-align: left;
+            padding: 0 15px;
+        }
+
+        .columna-indice h3 {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .lista-contenido {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .lista-contenido li {
+            font-size: 1.15rem;
+            margin-bottom: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #bbbbbb;
+            transition: color 0.3s ease;
+        }
+
+        .lista-contenido li::before {
+            content: "•";
+            color: #ffffff;
+            font-size: 1.5rem;
+        }
+
+        /* Bobbing effect al pasar el cursor o seleccionar */
+        .lista-contenido li:hover, .lista-contenido li.seleccionado {
+            color: #ffffff;
+            font-weight: bold;
+            animation: flotar 1s ease-in-out infinite;
+        }
+
+        /* =========================================
+           ANIMACIONES (KEYFRAMES)
+        ========================================= */
+        @keyframes flotar {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        @keyframes latido {
             0% { transform: scale(1); }
             14% { transform: scale(1.08); }
             28% { transform: scale(1); }
@@ -116,80 +203,86 @@
             70% { transform: scale(1); }
         }
 
-        /* Movimiento estrellas y corazones */
-        @keyframes floatSlow {
+        @keyframes flotarSuave {
             0% { transform: translateY(0) rotate(0deg); }
             100% { transform: translateY(-8px) rotate(5deg); }
         }
-        
-    /* Estilos Página 2 */
-.hidden { display: none !important; }
-.screen { text-align: center; width: 100%; max-width: 750px; padding: 20px; box-sizing: border-box; animation: fadeIn 0.8s ease-out; }
-.level-header h2 { font-size: 2rem; text-transform: uppercase; text-shadow: 0 0 15px rgba(255, 0, 51, 0.8); }
-.level-badge { display: inline-block; background: linear-gradient(90deg, #ff0033, #ff4d4d); padding: 5px 15px; border-radius: 5px; font-weight: bold; font-size: 0.9rem; margin-top: 10px; }
-.grid-layout { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 25px; }
-.index-card { flex: 1; min-width: 250px; background: #141414; border: 1px solid #333; border-left: 4px solid #00ff66; border-radius: 10px; padding: 20px; text-align: left; }
-.index-card h3 { margin-top: 0; color: #00ff66; font-size: 1rem; border-bottom: 1px solid #2a2a2a; padding-bottom: 10px; }
-.index-list { list-style: none; padding: 0; margin: 0; }
-.index-list li { padding: 10px 0; border-bottom: 1px dashed #222; font-size: 0.9rem; display: flex; justify-content: space-between; }
-.index-list li span { color: #00ff66; font-weight: bold; }
-.car-card { flex: 1.2; min-width: 260px; border-radius: 10px; border: 1px solid #ff0033; padding: 20px; display: flex; flex-direction: column; justify-content: center; align-items: center; background: repeating-linear-gradient(-45deg, #111, #111 10px, #2a050d 10px, #2a050d 20px); }
-.car-image { width: 100%; max-width: 280px; border-radius: 8px; animation: speedVibrate 0.2s infinite alternate; }
-.btn-next { margin-top: 25px; background-color: #00ff66; color: #000; border: none; padding: 12px 30px; font-weight: bold; border-radius: 25px; cursor: pointer; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes speedVibrate { 0% { transform: translateX(-1px); } 100% { transform: translateX(1px); } }
+
+        @keyframes aparecer {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
 
-    <div id="page1" class="container">
-        <!-- Título y fecha -->
-        <h1>Happy Birthday <span class="date">25/11 ❤️</span></h1>
+    <!-- ================= PÁGINA 1: PORTADA ================= -->
+    <div id="pagina1" class="portada">
+        <h1>Happy Birthday <span class="fecha">25/11 ❤️</span></h1>
         
-        <!-- Zona del regalo con las estrellas y corazones -->
-        <div class="gift-section">
-            <span class="decor heart1">❤️</span>
-            <span class="decor star1">⭐</span>
-            
-            <div class="gift-box">🎀</div>
-            
-            <span class="decor heart2">❤️</span>
-            <span class="decor star2">⭐</span>
+        <div class="zona-regalo">
+            <span class="adorno corazon1">❤️</span>
+            <span class="adorno estrella1">⭐</span>
+            <div class="caja-regalo">🎁</div>
+            <span class="adorno corazon2">❤️</span>
+            <span class="adorno estrella2">⭐</span>
         </div>
 
-        <!-- Botón de continuación -->
-        <button class="btn-continue" onclick="nextSection()">CONTINUE</button>
+        <button class="boton-continuar" onclick="irAPagina2()">CONTINUE</button>
     </div>
-<div id="page2" class="screen hidden">
-    <div class="level-header">
-        <h2>¡Felicidades por alcanzar el NIVEL 22!</h2>
-        <span class="level-badge">🏁 SPEED RACER EDITION</span>
-    </div>
-    <div class="grid-layout">
-        <div class="index-card">
-            <h3>📊 CONTENIDO DEL SISTEMA</h3>
-            <ul class="index-list">
-                <li>01. no se q poner aquí x1 <span>Pág. 3</span></li>
-                <li>02. no se q poner aquí x2 <span>Pág. 4</span></li>
-                <li>03. no se q poner aquí x3 <span>Pág. 5</span></li>
-                <li>04. no se q poner aquí x4 <span>Pág. 6</span></li>
-                <li>05. no se q poner aquí x5 <span>Pág. 7</span></li>
-            </ul>
-        </div>
-        <div class="car-card">
-            <img src="mach6.png" alt="Mach 6" class="car-image" onerror="this.src='https://placeholder.com'">
-            <p style="font-size: 0.85rem; color: #ff99aa; margin-top: 10px;">"Go Speed Racer, Go!"</p>
-        </div>
-    </div>
-    <button class="btn-next" onclick="alert('¡Aquí conectaremos la Página 3!')">SIGUIENTE NIVEL ➔</button>
-</div>
 
+    <!-- ================= PÁGINA 2: NIVEL 22 ================= -->
+    <div id="pagina2" class="pantalla-2 oculto">
+        <h2 class="titulo-nivel">¡Felicidades haz alcanzado el NIVEL 22!</h2>
+
+        <div class="estructura-boceto">
+            <!-- Izquierda: Corvette C6 Neón -->
+            <div class="columna-auto">
+                <img src="c6.png" alt="Corvette C6" class="imagen-neon">
+            </div>
+
+            <!-- Centro: Índice -->
+            <div class="columna-indice">
+                <h3>CONTENIDO</h3>
+                <ul class="lista-contenido">
+                    <li onclick="seleccionarOpcion(this, 3)">Página 3</li>
+                    <li onclick="seleccionarOpcion(this, 4)">Página 4</li>
+                    <li onclick="seleccionarOpcion(this, 5)">Página 5</li>
+                    <li onclick="seleccionarOpcion(this, 6)">Página 6</li>
+                    <li onclick="seleccionarOpcion(this, 7)">Página 7</li>
+                </ul>
+            </div>
+
+            <!-- Derecha: Pista Speed Racer Neón -->
+            <div class="columna-pista">
+                <img src="pista.png" alt="Pista Speed Racer" class="imagen-neon">
+            </div>
+        </div>
+
+        <div style="height: 20px;"></div>
+    </div>
+
+    <!-- ================= LÓGICA EN JAVASCRIPT ================= -->
     <script>
-        function nextSection() {
-            // Nivel 22 (Página 2) 
-            document.getElementById('page1').classList.add('hidden');
-document.getElementById('page2').classList.remove('hidden');
-        
+        // Función 1: Cambia de la portada a la pantalla del Nivel 22
+        function irAPagina2() {
+            document.getElementById('pagina1').classList.add('oculto');
+            document.getElementById('pagina2').classList.remove('oculto');
+        }
+
+        // Función 2: Activa el efecto flotante en la opción elegida y prepara el cambio
+        function seleccionarOpcion(elementoClicado, numeroPagina) {
+            const todasLasOpciones = document.querySelectorAll('.lista-contenido li');
+            
+            todasLasOpciones.forEach(function(item) {
+                item.classList.remove('seleccionado');
+            });
+
+            elementoClicado.classList.add('seleccionado');
+
+            setTimeout(function() {
+                alert("¡Aquí cruzarán las motos de TRON hacia la Página " + numeroPagina + "!");
+            }, 900);
         }
     </script>
 </body>
