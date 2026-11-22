@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feliz Cumpleaños - Nivel 22</title>
+    <link rel="preconnect" href="https://googleapis.com">
+<link rel="preconnect" href="https://gstatic.com" crossorigin>
+<link href="https://googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         /* Configuración general */
         body {
@@ -33,6 +36,9 @@
         }
 
         .portada h1 {
+            font-family: 'Orbitron', sans-serif;
+text-transform: uppercase;
+text-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
             font-size: 2.8rem;
             margin: 0;
             font-weight: 600;
@@ -104,9 +110,9 @@
             padding: 40px 50px;
             box-sizing: border-box;
             background-color: #000000;
-            /* El rayo ocupa toda la pantalla de fondo */
+            /* rayo */
             background-image: url('pista.png');
-            background-size: cover;
+            background-size: 67% auto;
             background-position: right bottom;
             background-repeat: no-repeat;
             display: flex;
@@ -117,14 +123,21 @@
         }
 
         .titulo-nivel {
-            font-size: 2.2rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
             width: 100%;
             text-align: center;
-            margin: 0 0 40px 0;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+            margin: 0 0 50px 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #ffffff, #ffccd5, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 12px rgba(255, 0, 51, 0.5));
             z-index: 2;
         }
+        
 
         /* Índice ubicado en la zona negra libre de la izquierda */
         .columna-indice {
