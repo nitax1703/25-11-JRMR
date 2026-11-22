@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feliz Cumpleaños - Nivel 22</title>
     <style>
-        /* Configuración general de toda la página */
+        /* Configuración general */
         body {
             background-color: #0b0b0b;
             color: #ffffff;
@@ -18,7 +18,6 @@
             overflow-x: hidden;
         }
 
-        /* Clase auxiliar para ocultar las pantallas que no están activas */
         .oculto {
             display: none !important;
         }
@@ -58,7 +57,7 @@
             align-items: center;
         }
 
-        .caja-regalo {
+        .lazo {
             font-size: 5.5rem;
             user-select: none;
             animation: flotar 2s ease-in-out infinite;
@@ -96,58 +95,42 @@
         }
 
         /* =========================================
-           ESTILOS DE LA PÁGINA 2 (BOCETO LIBRETA)
+           ESTILOS DE LA PÁGINA 2 (RAYO COMPLETO + ÍNDICE EN ZONA NEGRA)
         ========================================= */
         .pantalla-2 {
-            width: 100%;
-            max-width: 1050px;
-            min-height: 100vh;
-            padding: 30px 20px;
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            padding: 40px 50px;
             box-sizing: border-box;
+            background-color: #000000;
+            /* El rayo ocupa toda la pantalla de fondo */
+            background-image: url('pista.png');
+            background-size: cover;
+            background-position: right bottom;
+            background-repeat: no-repeat;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
+            justify-content: flex-start;
+            align-items: flex-start;
             animation: aparecer 0.8s ease-out;
         }
 
         .titulo-nivel {
             font-size: 2.2rem;
+            width: 100%;
             text-align: center;
-            margin-bottom: 20px;
+            margin: 0 0 40px 0;
             letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+            z-index: 2;
         }
 
-        .estructura-boceto {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .columna-auto, .columna-pista {
-            flex: 1;
-            min-width: 240px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Hace transparente el fondo negro de tus imágenes neón */
-        .imagen-neon {
-            width: 100%;
-            max-width: 340px;
-            height: auto;
-            mix-blend-mode: screen;
-        }
-
+        /* Índice ubicado en la zona negra libre de la izquierda */
         .columna-indice {
-            flex: 1;
-            min-width: 220px;
             text-align: left;
-            padding: 0 15px;
+            padding-left: 20px;
+            z-index: 2;
         }
 
         .columna-indice h3 {
@@ -164,13 +147,13 @@
         }
 
         .lista-contenido li {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             margin-bottom: 18px;
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 12px;
-            color: #bbbbbb;
+            color: #cccccc;
             transition: color 0.3s ease;
         }
 
@@ -188,7 +171,7 @@
         }
 
         /* =========================================
-           ANIMACIONES (KEYFRAMES)
+           ANIMACIONES
         ========================================= */
         @keyframes flotar {
             0%, 100% { transform: translateY(0); }
@@ -223,7 +206,7 @@
         <div class="zona-regalo">
             <span class="adorno corazon1">❤️</span>
             <span class="adorno estrella1">⭐</span>
-            <div class="caja-regalo">🎁</div>
+            <div class="lazo">🎀</div>
             <span class="adorno corazon2">❤️</span>
             <span class="adorno estrella2">⭐</span>
         </div>
@@ -235,42 +218,26 @@
     <div id="pagina2" class="pantalla-2 oculto">
         <h2 class="titulo-nivel">¡Felicidades haz alcanzado el NIVEL 22!</h2>
 
-        <div class="estructura-boceto">
-            <!-- Izquierda: Corvette C6 Neón -->
-            <div class="columna-auto">
-                <img src="c6.png" alt="Corvette C6" class="imagen-neon">
-            </div>
-
-            <!-- Centro: Índice -->
-            <div class="columna-indice">
-                <h3>CONTENIDO</h3>
-                <ul class="lista-contenido">
-                    <li onclick="seleccionarOpcion(this, 3)">Página 3</li>
-                    <li onclick="seleccionarOpcion(this, 4)">Página 4</li>
-                    <li onclick="seleccionarOpcion(this, 5)">Página 5</li>
-                    <li onclick="seleccionarOpcion(this, 6)">Página 6</li>
-                    <li onclick="seleccionarOpcion(this, 7)">Página 7</li>
-                </ul>
-            </div>
-
-            <!-- Derecha: Pista Speed Racer Neón -->
-            <div class="columna-pista">
-                <img src="pista.png" alt="Pista Speed Racer" class="imagen-neon">
-            </div>
+        <!-- Índice posicionado en el espacio negro superior izquierdo -->
+        <div class="columna-indice">
+            <h3>CONTENIDO</h3>
+            <ul class="lista-contenido">
+                <li onclick="seleccionarOpcion(this, 3)">Página 3</li>
+                <li onclick="seleccionarOpcion(this, 4)">Página 4</li>
+                <li onclick="seleccionarOpcion(this, 5)">Página 5</li>
+                <li onclick="seleccionarOpcion(this, 6)">Página 6</li>
+                <li onclick="seleccionarOpcion(this, 7)">Página 7</li>
+            </ul>
         </div>
-
-        <div style="height: 20px;"></div>
     </div>
 
     <!-- ================= LÓGICA EN JAVASCRIPT ================= -->
     <script>
-        // Función 1: Cambia de la portada a la pantalla del Nivel 22
         function irAPagina2() {
             document.getElementById('pagina1').classList.add('oculto');
             document.getElementById('pagina2').classList.remove('oculto');
         }
 
-        // Función 2: Activa el efecto flotante en la opción elegida y prepara el cambio
         function seleccionarOpcion(elementoClicado, numeroPagina) {
             const todasLasOpciones = document.querySelectorAll('.lista-contenido li');
             
