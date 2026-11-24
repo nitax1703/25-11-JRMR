@@ -319,7 +319,7 @@ text-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
         }
 
         function mostrarPantalla(idDestino) {
-            ['pagina1', 'pagina2', 'pagina3'].forEach(function(id) {
+            ['pagina1', 'pagina2', 'pagina3', 'pagina4', 'pagina5'].forEach(function(id) {
                 const el = document.getElementById(id);
                 if (el) el.classList.add('oculto');
             });
@@ -342,6 +342,7 @@ text-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
                 }, 850);
             }, 500);
         }
+    </script>
         <!-- Página 4: Exclusiva del Corvette C6 -->
 <div id="pagina4" class="pantalla-4 oculto">
     <h2 class="titulo-corvette">CORVETTE C6 // NIVEL 22</h2>
@@ -357,7 +358,6 @@ text-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
         <button class="btn-nav" onclick="mostrarPantalla('pagina5')">Siguiente ➔</button>
     </div>
 </div>
-    </script>
 </body>
 </html>
     
