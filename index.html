@@ -8,6 +8,31 @@
 <link rel="preconnect" href="https://gstatic.com" crossorigin>
 <link href="https://googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
+    /* Transición Motos TRON */
+#transicion-tron { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(5, 10, 15, 0.92); z-index: 9999; pointer-events: none; overflow: hidden; }
+.estela-tron { position: absolute; height: 6px; width: 150%; border-radius: 3px; opacity: 0; }
+.moto-azul { top: 38%; left: -150%; background: linear-gradient(90deg, transparent, #00f3ff, #fff); box-shadow: 0 0 25px #00f3ff; animation: cruzarDer 0.9s ease-out forwards; }
+.moto-naranja { top: 62%; right: -150%; background: linear-gradient(-90deg, transparent, #ff5500, #fff); box-shadow: 0 0 25px #ff5500; animation: cruzarIzq 0.9s ease-out 0.1s forwards; }
+@keyframes cruzarDer { 0% { left: -150%; opacity: 1; } 100% { left: 100%; opacity: 0; } }
+@keyframes cruzarIzq { 0% { right: -150%; opacity: 1; } 100% { right: 100%; opacity: 0; } }
+
+/* Página 3: Marco Reus (2/5 Izquierda) */
+.pantalla-3 { width: 100vw; min-height: 100vh; padding: 40px 50px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: 40px; animation: aparecer 0.8s ease-out; }
+.zona-reus { flex: 0 0 40%; max-width: 40%; display: flex; justify-content: center; }
+.imagen-reus { width: 100%; max-height: 75vh; object-fit: contain; filter: drop-shadow(0 0 20px rgba(253, 225, 0, 0.35)); }
+.zona-info-3 { flex: 1; text-align: left; }
+.titulo-dortmund { font-family: 'Orbitron', sans-serif; font-size: 2rem; color: #fde100; margin: 0 0 15px 0; text-transform: uppercase; letter-spacing: 2px; }
+.texto-dedicatoria { font-size: 1.05rem; line-height: 1.6; color: #ddd; margin-bottom: 20px; }
+.grid-gustos { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 15px; margin-bottom: 20px; }
+.tarjeta-gusto { background: #141414; border: 1px solid #2a2a2a; border-left: 3px solid #fde100; padding: 15px; border-radius: 8px; }
+.tarjeta-gusto h4 { margin: 0 0 5px 0; color: #fde100; font-size: 0.95rem; }
+.tarjeta-gusto p { margin: 0; font-size: 0.85rem; color: #bbb; }
+.imagen-corvette-mini { width: 180px; height: auto; mix-blend-mode: screen; }
+.botones-navegacion { display: flex; gap: 15px; margin-top: 20px; }
+.btn-nav { font-family: 'Orbitron', sans-serif; background: transparent; color: #fff; border: 1px solid #555; padding: 10px 22px; border-radius: 20px; cursor: pointer; font-size: 0.85rem; }
+.btn-nav:hover { border-color: #fde100; color: #fde100; }
+@media (max-width: 768px) { .pantalla-3 { flex-direction: column; } .zona-reus { max-width: 70%; } }
+    
         /* Configuración general */
         body {
             background-color: #0b0b0b;
@@ -112,7 +137,7 @@ text-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
             background-color: #000000;
             /* rayo */
             background-image: url('pista.png');
-            background-size: 67% auto;
+            background-size: cover;
             background-position: right bottom;
             background-repeat: no-repeat;
             display: flex;
@@ -264,6 +289,38 @@ text-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
                 alert("¡Aquí cruzarán las motos de TRON hacia la Página " + numeroPagina + "!");
             }, 900);
         }
+        <!-- Página 3: Exclusiva de Marco Reus -->
+<div id="pagina3" class="pantalla-3 oculto">
+    <div class="zona-reus">
+        <img src="reus.png" alt="Marco Reus" class="imagen-reus">
+    </div>
+    <div class="zona-info-3">
+        <h2 class="titulo-dortmund">11. Mi Jugador Estrella</h2>
+        <p class="texto-dedicatoria">
+            Así como Marco Reus representa lealtad, talento puro y nunca rendirse sin importar los obstáculos, 
+            admiro todo lo que eres y todo lo que construyes cada día. ¡Feliz vuelta al sol, mi #11 favorito!
+        </p>
+        <div class="grid-gustos">
+            <div class="tarjeta-gusto">
+                <h4>💛 Lealtad Infinita</h4>
+                <p>Fiel a sus colores y a lo que ama, pase lo que pase.</p>
+            </div>
+            <div class="tarjeta-gusto">
+                <h4>⚽ Magia en la Cancha</h4>
+                <p>Visión de juego, elegancia y entrega total en cada minuto.</p>
+            </div>
+            <div class="tarjeta-gusto">
+                <h4>🏆 Espíritu de Capitán</h4>
+                <p>Liderazgo real y ejemplo dentro y fuera del campo.</p>
+            </div>
+        </div>
+        <div class="botones-navegacion">
+            <button class="btn-nav" onclick="mostrarPantalla('pagina2')">⬅ Índice</button>
+            <button class="btn-nav" onclick="alert('Siguiente: Página 4')">Siguiente ➔</button>
+        </div>
+    </div>
+</div>
+        
     </script>
 </body>
 </html>
