@@ -320,7 +320,40 @@ text-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
         </div>
     </div>
 </div>
-        
-    </script>
+
+<!-- Capa de transición TRON -->
+<div id="transicion-tron" class="oculto">
+    <div class="estela-tron moto-azul"></div>
+    <div class="estela-tron moto-naranja"></div>
+</div>
+
+<script>
+    function irAPagina2() {
+        mostrarPantalla('pagina2');
+    }
+
+    function mostrarPantalla(idDestino) {
+        ['pagina1', 'pagina2', 'pagina3'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.classList.add('oculto');
+        });
+        const destino = document.getElementById(idDestino);
+        if (destino) destino.classList.remove('oculto');
+    }
+
+    function seleccionarOpcion(elemento, numeroPagina) {
+        document.querySelectorAll('.lista-contenido li').forEach(li => li.classList.remove('seleccionado'));
+        elemento.classList.add('seleccionado');
+
+        setTimeout(() => {
+            const tron = document.getElementById('transicion-tron');
+            if (tron) tron.classList.remove('oculto');
+            setTimeout(() => {
+                mostrarPantalla('pagina' + numeroPagina);
+                if (tron) tron.classList.add('oculto');
+            }, 850);
+        }, 500);
+    }
+</script>
 </body>
 </html>
