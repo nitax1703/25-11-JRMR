@@ -268,92 +268,75 @@ text-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
             </ul>
         </div>
     </div>
+<!-- ================= PÁGINA 3: MARCO REUS ================= -->
+    <div id="pagina3" class="pantalla-3 oculto">
+        <div class="zona-reus">
+            <img src="reus.png" alt="Marco Reus" class="imagen-reus">
+        </div>
+        <div class="zona-info-3">
+            <h2 class="titulo-dortmund">11. Mi Jugador Estrella</h2>
+            <p class="texto-dedicatoria">
+                Así como Marco Reus representa lealtad, talento puro y nunca rendirse sin importar los obstáculos, 
+                admiro todo lo que eres y todo lo que construyes cada día. ¡Feliz vuelta al sol, mi #11 favorito!
+            </p>
+            <div class="grid-gustos">
+                <div class="tarjeta-gusto">
+                    <h4>💛 Lealtad Infinita</h4>
+                    <p>Fiel a sus colores y a lo que ama, pase lo que pase.</p>
+                </div>
+                <div class="tarjeta-gusto">
+                    <h4>⚽ Magia en la Cancha</h4>
+                    <p>Visión de juego, elegancia y entrega total en cada minuto.</p>
+                </div>
+                <div class="tarjeta-gusto">
+                    <h4>🏆 Espíritu de Capitán</h4>
+                    <p>Liderazgo real y ejemplo dentro y fuera del campo.</p>
+                </div>
+            </div>
+            <div class="botones-navegacion">
+                <button class="btn-nav" onclick="mostrarPantalla('pagina2')">⬅ Índice</button>
+                <button class="btn-nav" onclick="alert('Siguiente: Página 4')">Siguiente ➔</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= CAPA DE TRANSICIÓN TRON ================= -->
+    <div id="transicion-tron" class="oculto">
+        <div class="estela-tron moto-azul"></div>
+        <div class="estela-tron moto-naranja"></div>
+    </div>
 
     <!-- ================= LÓGICA EN JAVASCRIPT ================= -->
     <script>
         function irAPagina2() {
-            document.getElementById('pagina1').classList.add('oculto');
-            document.getElementById('pagina2').classList.remove('oculto');
+            mostrarPantalla('pagina2');
+        }
+
+        function mostrarPantalla(idDestino) {
+            ['pagina1', 'pagina2', 'pagina3'].forEach(function(id) {
+                const el = document.getElementById(id);
+                if (el) el.classList.add('oculto');
+            });
+            const destino = document.getElementById(idDestino);
+            if (destino) destino.classList.remove('oculto');
         }
 
         function seleccionarOpcion(elementoClicado, numeroPagina) {
-            const todasLasOpciones = document.querySelectorAll('.lista-contenido li');
-            
-            todasLasOpciones.forEach(function(item) {
+            document.querySelectorAll('.lista-contenido li').forEach(function(item) {
                 item.classList.remove('seleccionado');
             });
-
             elementoClicado.classList.add('seleccionado');
 
             setTimeout(function() {
-                alert("¡Aquí cruzarán las motos de TRON hacia la Página " + numeroPagina + "!");
-            }, 900);
+                const tron = document.getElementById('transicion-tron');
+                if (tron) tron.classList.remove('oculto');
+                setTimeout(function() {
+                    mostrarPantalla('pagina' + numeroPagina);
+                    if (tron) tron.classList.add('oculto');
+                }, 850);
+            }, 500);
         }
-        <!-- Página 3: Exclusiva de Marco Reus -->
-<div id="pagina3" class="pantalla-3 oculto">
-    <div class="zona-reus">
-        <img src="reus.png" alt="Marco Reus" class="imagen-reus">
-    </div>
-    <div class="zona-info-3">
-        <h2 class="titulo-dortmund">11. Mi Jugador Estrella</h2>
-        <p class="texto-dedicatoria">
-            Así como Marco Reus representa lealtad, talento puro y nunca rendirse sin importar los obstáculos, 
-            admiro todo lo que eres y todo lo que construyes cada día. ¡Feliz vuelta al sol, mi #11 favorito!
-        </p>
-        <div class="grid-gustos">
-            <div class="tarjeta-gusto">
-                <h4>💛 Lealtad Infinita</h4>
-                <p>Fiel a sus colores y a lo que ama, pase lo que pase.</p>
-            </div>
-            <div class="tarjeta-gusto">
-                <h4>⚽ Magia en la Cancha</h4>
-                <p>Visión de juego, elegancia y entrega total en cada minuto.</p>
-            </div>
-            <div class="tarjeta-gusto">
-                <h4>🏆 Espíritu de Capitán</h4>
-                <p>Liderazgo real y ejemplo dentro y fuera del campo.</p>
-            </div>
-        </div>
-        <div class="botones-navegacion">
-            <button class="btn-nav" onclick="mostrarPantalla('pagina2')">⬅ Índice</button>
-            <button class="btn-nav" onclick="alert('Siguiente: Página 4')">Siguiente ➔</button>
-        </div>
-    </div>
-</div>
-
-<!-- Capa de transición TRON -->
-<div id="transicion-tron" class="oculto">
-    <div class="estela-tron moto-azul"></div>
-    <div class="estela-tron moto-naranja"></div>
-</div>
-
-<script>
-    function irAPagina2() {
-        mostrarPantalla('pagina2');
-    }
-
-    function mostrarPantalla(idDestino) {
-        ['pagina1', 'pagina2', 'pagina3'].forEach(id => {
-            const el = document.getElementById(id);
-            if (el) el.classList.add('oculto');
-        });
-        const destino = document.getElementById(idDestino);
-        if (destino) destino.classList.remove('oculto');
-    }
-
-    function seleccionarOpcion(elemento, numeroPagina) {
-        document.querySelectorAll('.lista-contenido li').forEach(li => li.classList.remove('seleccionado'));
-        elemento.classList.add('seleccionado');
-
-        setTimeout(() => {
-            const tron = document.getElementById('transicion-tron');
-            if (tron) tron.classList.remove('oculto');
-            setTimeout(() => {
-                mostrarPantalla('pagina' + numeroPagina);
-                if (tron) tron.classList.add('oculto');
-            }, 850);
-        }, 500);
-    }
-</script>
+    </script>
 </body>
 </html>
+    
