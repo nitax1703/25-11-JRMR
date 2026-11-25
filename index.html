@@ -38,7 +38,7 @@
 .btn-nav:hover { border-color: #fde100; color: #fde100; }
 @media (max-width: 768px) { .pantalla-3 { flex-direction: column; } .zona-reus { max-width: 70%; } }
 
-        /* Página 4: Corvette en la mitad izquierda + Corazones neón */
+        /* Página 4: Corvette */
 .pantalla-4 { position: relative; width: 100vw; min-height: 100vh; padding: 40px 6% 40px 0; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: 30px; animation: aparecer 0.8s ease-out; overflow: hidden; }
 .corazones-neon { position: absolute; top: 28px; right: 40px; display: flex; gap: 14px; font-size: 1.7rem; color: #ff3355; text-shadow: 0 0 10px #ff3355, 0 0 22px #ff0044; animation: latidoNeon 2.2s infinite ease-in-out; pointer-events: none; }
 .corazones-neon span:nth-child(2) { font-size: 1.2rem; margin-top: 14px; opacity: 0.85; }
@@ -67,6 +67,19 @@
 .titulo-transformer { font-family: 'Orbitron', sans-serif; font-size: 1.9rem; color: #00c3ff; letter-spacing: 2px; text-transform: uppercase; text-shadow: 0 0 16px rgba(0, 195, 255, 0.45); margin: 0 0 16px 0; }
 .frase-transformer { font-size: 1.05rem; color: #dddddd; line-height: 1.7; margin-bottom: 28px; }
 @media (max-width: 768px) { .pantalla-6 { flex-direction: column; padding: 40px 20px; } .zona-texto-6 { text-align: center; } }
+
+        /* Botón música + Página 7 (Velas Japonesas) */
+.btn-musica { position: fixed; top: 20px; left: 20px; z-index: 9000; background: rgba(20, 20, 20, 0.85); color: #fff; border: 1px solid #444; border-radius: 50%; width: 42px; height: 42px; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.pantalla-7 { width: 100vw; min-height: 100vh; padding: 40px 20px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; animation: aparecer 0.8s ease-out; }
+.titulo-trading { font-family: 'Orbitron', sans-serif; font-size: 1.9rem; color: #00ff66; letter-spacing: 2px; text-transform: uppercase; text-shadow: 0 0 16px rgba(0, 255, 102, 0.4); margin: 0 0 10px 0; }
+.grafica-velas { display: flex; align-items: flex-end; justify-content: center; gap: 20px; height: 175px; margin: 25px 0; padding: 20px 35px; border-bottom: 2px solid #333; border-left: 2px solid #333; }
+.vela { position: relative; width: 18px; border-radius: 2px; animation: crecerVela 1.2s ease-out forwards; }
+.vela::before { content: ""; position: absolute; left: 50%; transform: translateX(-50%); width: 2px; background: inherit; top: -15px; bottom: -15px; }
+.vela.roja { background-color: #ff3355; box-shadow: 0 0 12px rgba(255, 51, 85, 0.45); }
+.vela.verde { background-color: #00ff66; box-shadow: 0 0 14px rgba(0, 255, 102, 0.55); }
+.frase-metafora { max-width: 520px; font-size: 1.05rem; color: #dddddd; line-height: 1.7; margin-bottom: 18px; }
+.frase-especial { max-width: 520px; font-size: 1.15rem; color: #ff6688; font-weight: 600; text-shadow: 0 0 12px rgba(255, 102, 136, 0.35); margin-bottom: 26px; }
+@keyframes crecerVela { from { transform: scaleY(0); transform-origin: bottom; } to { transform: scaleY(1); transform-origin: bottom; } }
         
         /* Configuración general */
         body {
@@ -309,22 +322,22 @@ text-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
             <img src="reus.png" alt="Marco Reus" class="imagen-reus">
         </div>
         <div class="zona-info-3">
-            <h2 class="titulo-dortmund">11. Tú Eres Mi Jugador Favorito</h2>
+            <h2 class="titulo-dortmund">11. Tú eres mi jugador favorito</h2>
             <p class="texto-dedicatoria">
                 Así como Marco Reus representa lealtad, talento y nunca rendirse sin importar los obstáculos, 
                 admiro todo lo que eres y todo lo que construyes cada día. ¡Feliz vuelta al sol, mi #11 favorito!
             </p>
             <div class="grid-gustos">
                 <div class="tarjeta-gusto">
-                    <h4>💛 Lo que eres </h4>
+                    <h4>💛 Te amo </h4>
                     <p>Tu forma de ser y todos esos pequeños detalles que te hacen alguien tan especial.</p>
                 </div>
                 <div class="tarjeta-gusto">
-                    <h4>✨ Todo lo que llevas dentro</h4>
+                    <h4>✨ Me gusta todo de ti </h4>
                     <p> Tus sueños, tus ideas, tu disciplina y capacidad, es todo lo que te llevara lejos.</p>
                 </div>
                 <div class="tarjeta-gusto">
-                    <h4>🏆 Lo que esta por venir</h4>
+                    <h4>🏆 Eres genial </h4>
                     <p>Que este nuevo año este lleno de oportunidades, logros y momentos felices. Pd: estoy orgullosa de ti</p>
                 </div>
             </div>
@@ -389,7 +402,7 @@ text-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
 <!-- ========== PÁGINA 5: RENEKTON ========== -->
 <div id="pagina5" class="pantalla-5 oculto">
     <div class="zona-texto-5">
-        <h2 class="titulo-renekton">CHAT RESTRINGIDO, PERO TU PRO</h2>
+        <h2 class="titulo-renekton"> AUNQUE TE BANEEN, SIGUES SIENDO PRO</h2>
         <p class="frase-renekton">
             "Igual que uno de tus campeones favoritos en la Grieta, siempre sales adelante sin importar qué tan difícil se ponga la partida.
             Pd:ya no hay que tiltearse tanto."
@@ -413,9 +426,9 @@ text-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
     </div>
 
     <div class="zona-texto-6">
-        <h2 class="titulo-transformer">MÁS DE LO QUE EL OJO VE</h2>
+        <h2 class="titulo-transformer">JUST LIKE YOU</h2>
         <p class="frase-transformer">
-            "Agilidad, estilo y la capacidad de adaptarse a cualquier situación sin perder su esencia. Siempre tienes ese algo extra que sorprende y te hace único."
+            "Amor, aquí no sé qué poner, pero se ve bien chido porque es igual de grandote y fuerte que tú. <3"
         </p>
 
         <div class="botones-navegacion">
@@ -424,12 +437,75 @@ text-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
         </div>
     </div>
 </div>
-    
+   <!-- Audio de fondo y botón discreto -->
+<audio id="musica-fondo" loop>
+    <source src="cancion.mp3" type="audio/mpeg">
+</audio>
+<button id="btn-control-musica" class="btn-musica oculto" onclick="alternarMusica()">🔊</button>
+
+<!-- ========== PÁGINA 7: CIERRE VELAS JAPONESAS ========== -->
+<div id="pagina7" class="pantalla-7 oculto">
+    <h2 class="titulo-trading">NIVEL 22: TENDENCIA ALCISTA 📈</h2>
+
+    <div class="grafica-velas">
+        <div class="vela roja" style="height: 45px;"></div>
+        <div class="vela verde" style="height: 75px;"></div>
+        <div class="vela roja" style="height: 55px;"></div>
+        <div class="vela verde" style="height: 105px;"></div>
+        <div class="vela verde" style="height: 135px;"></div>
+        <div class="vela verde" style="height: 165px;"></div>
+    </div>
+
+    <p class="frase-metafora">
+        "Incluso después de los retrocesos, los mejores gráficos siempre marcan nuevos máximos. Que este año sea tu mejor racha en todo lo que te propongas."
+    </p>
+
+    <p class="frase-especial">
+        "Gracias por enseñarme a amar, el día de hoy doy gracias al cielo porque existes. ❤️"
+    </p>
+
+    <div class="botones-navegacion">
+        <button class="btn-nav" onclick="mostrarPantalla('pagina2')">⬅ Índice</button>
+        <button class="btn-nav" onclick="mostrarPantalla('pagina1')">↻ Portada</button>
+    </div>
+</div> 
 <!-- ========== LÓGICA EN JAVASCRIPT ========== -->
 <script>
     function irAPagina2() {
+        const audio = document.getElementById('musica-fondo');
+        const btnMusica = document.getElementById('btn-control-musica');
+        if (audio) {
+            audio.volume = 0.5;
+            audio.play().catch(() => {});
+        }
+        if (btnMusica) btnMusica.classList.remove('oculto');
         mostrarPantalla('pagina2');
     }
+
+    function alternarMusica() {
+        const audio = document.getElementById('musica-fondo');
+        const btn = document.getElementById('btn-control-musica');
+        if (!audio) return;
+        if (audio.paused) {
+            audio.play();
+            btn.textContent = '🔊';
+        } else {
+            audio.pause();
+            btn.textContent = '🔇';
+        }
+    }
+
+    document.addEventListener('click', function iniciarAudioAlTocar() {
+        const audio = document.getElementById('musica-fondo');
+        const btnMusica = document.getElementById('btn-control-musica');
+        if (audio && audio.paused) {
+            audio.volume = 0.5;
+            audio.play().then(() => {
+                if (btnMusica) btnMusica.classList.remove('oculto');
+                document.removeEventListener('click', iniciarAudioAlTocar);
+            }).catch(() => {});
+        }
+    });
 
     function mostrarPantalla(idDestino) {
         ['pagina1', 'pagina2', 'pagina3', 'pagina4', 'pagina5', 'pagina6', 'pagina7'].forEach(function(id) {
