@@ -50,6 +50,14 @@
 .frase-corvette { font-size: 1.15rem; color: #eaeaea; line-height: 1.75; margin-bottom: 30px; }
 @media (max-width: 768px) { .pantalla-4 { flex-direction: column; padding: 80px 20px 40px 20px; } .zona-corvette-izq, .zona-texto-der { width: 100%; text-align: center; } .imagen-c6-protagonista { margin-left: 0; } }
         
+  /* Página 5: Renekton (Texto izquierda | Imagen derecha) */
+.pantalla-5 { width: 100vw; min-height: 100vh; padding: 40px 6%; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: 40px; animation: aparecer 0.8s ease-out; }
+.zona-texto-5 { flex: 1; text-align: left; max-width: 500px; }
+.titulo-renekton { font-family: 'Orbitron', sans-serif; font-size: 1.9rem; color: #00e676; letter-spacing: 2px; text-transform: uppercase; text-shadow: 0 0 16px rgba(0, 230, 118, 0.45); margin: 0 0 16px 0; }
+.frase-renekton { font-size: 1.05rem; color: #dddddd; line-height: 1.7; margin-bottom: 28px; }
+.zona-renekton-der { flex: 1; display: flex; justify-content: center; align-items: center; }
+.imagen-renekton { width: 100%; max-width: 460px; max-height: 75vh; object-fit: contain; filter: drop-shadow(0 0 22px rgba(0, 230, 118, 0.35)); }
+@media (max-width: 768px) { .pantalla-5 { flex-direction: column-reverse; padding: 40px 20px; } .zona-texto-5 { text-align: center; } }
         
         /* Configuración general */
         body {
@@ -369,7 +377,25 @@ text-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
     </div>
 </div>
     
+<!-- ========== PÁGINA 5: RENEKTON ========== -->
+<div id="pagina5" class="pantalla-5 oculto">
+    <div class="zona-texto-5">
+        <h2 class="titulo-renekton">DOMINIO EN LA LÍNEA</h2>
+        <p class="frase-renekton">
+            "Fuerza, determinación y cero miedo a enfrentarse a lo que venga. Igual que tu campeón favorito en la Grieta, siempre sales adelante sin importar qué tan difícil se ponga la partida."
+        </p>
 
+        <div class="botones-navegacion">
+            <button class="btn-nav" onclick="mostrarPantalla('pagina2')">⬅ Índice</button>
+            <button class="btn-nav" onclick="mostrarPantalla('pagina6')">Siguiente ➔</button>
+        </div>
+    </div>
+
+    <div class="zona-renekton-der">
+        <img src="renekton.png" alt="Renekton" class="imagen-renekton">
+    </div>
+</div>
+    
 <!-- ========== LÓGICA EN JAVASCRIPT ========== -->
 <script>
     function irAPagina2() {
