@@ -32,12 +32,20 @@
 .btn-nav { font-family: 'Orbitron', sans-serif; background: transparent; color: #fff; border: 1px solid #555; padding: 10px 22px; border-radius: 20px; cursor: pointer; font-size: 0.85rem; }
 .btn-nav:hover { border-color: #fde100; color: #fde100; }
 @media (max-width: 768px) { .pantalla-3 { flex-direction: column; } .zona-reus { max-width: 70%; } }
+
+        /* Página 4: Exclusiva Corvette C6 Neón */
+.pantalla-4 { position: relative; width: 100vw; min-height: 100vh; padding: 40px 6%; box-sizing: border-box; display: flex; align-items: center; justify-content: center; gap: 45px; animation: aparecer 0.8s ease-out; overflow: hidden; }
+.corazones-neon { position: absolute; top: 28px; right: 40px; display: flex; gap: 14px; font-size: 1.7rem; color: #ff3355; text-shadow: 0 0 10px #ff3355, 0 0 22px #ff0044; animation: latidoNeon 2.2s infinite ease-in-out; pointer-events: none; }
+.corazones-neon span:nth-child(2) { font-size: 1.2rem; margin-top: 14px; opacity: 0.85; }
+.corazones-neon span:nth-child(3) { font-size: 2.1rem; margin-top: -6px; }
+@keyframes latidoNeon { 0%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.1); opacity: 1; } }
+.zona-corvette-izq { flex: 1.1; display: flex; justify-content: flex-start; padding-left: 3%; }
+.imagen-c6-protagonista { width: 100%; max-width: 500px; height: auto; mix-blend-mode: screen; filter: drop-shadow(0 0 22px rgba(255, 51, 85, 0.4)); }
+.zona-texto-der { flex: 1; text-align: left; max-width: 480px; }
+.titulo-corvette { font-family: 'Orbitron', sans-serif; font-size: 1.9rem; color: #ff3355; letter-spacing: 2px; text-transform: uppercase; text-shadow: 0 0 16px rgba(255, 51, 85, 0.5); margin: 0 0 16px 0; }
+.frase-corvette { font-size: 1.05rem; color: #dddddd; line-height: 1.65; margin-bottom: 28px; }
+@media (max-width: 768px) { .pantalla-4 { flex-direction: column; padding-top: 80px; } .zona-corvette-izq { justify-content: center; padding-left: 0; } .zona-texto-der { text-align: center; } }
         
-    /* Página 4: Exclusiva Corvette C6 Neón */
-.pantalla-4 { width: 100vw; min-height: 100vh; padding: 40px 20px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; animation: aparecer 0.8s ease-out; }
-.titulo-corvette { font-family: 'Orbitron', sans-serif; font-size: 2rem; color: #ff3355; letter-spacing: 3px; text-transform: uppercase; text-shadow: 0 0 18px rgba(255, 51, 85, 0.5); margin-bottom: 20px; }
-.imagen-c6-protagonista { width: 100%; max-width: 520px; height: auto; mix-blend-mode: screen; margin: 10px 0 25px 0; filter: drop-shadow(0 0 20px rgba(255, 51, 85, 0.35)); }
-.frase-corvette { max-width: 480px; font-size: 1.05rem; color: #cccccc; line-height: 1.6; margin-bottom: 30px; }
         
         /* Configuración general */
         body {
@@ -301,7 +309,7 @@ text-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
             </div>
             <div class="botones-navegacion">
                 <button class="btn-nav" onclick="mostrarPantalla('pagina2')">⬅ Índice</button>
-                <button class="btn-nav" onclick="mostrarPantalla('página 4')">Siguiente ➔</button>
+                <button class="btn-nav" onclick="mostrarPantalla('página4')">Siguiente ➔</button>
             </div>
         </div>
     </div>
@@ -345,17 +353,23 @@ text-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
     </script>
         <!-- Página 4: Exclusiva del Corvette C6 -->
 <div id="pagina4" class="pantalla-4 oculto">
-    <h2 class="titulo-corvette">CORVETTE C6 // NIVEL 22</h2>
-    
-    <img src="c6.png" alt="Corvette C6 Neón" class="imagen-c6-protagonista">
-
-    <p class="frase-corvette">
-        "Enfoque total, velocidad y el control en tus manos. Que este año sea el comienzo de todo lo que te propones alcanzar."
-    </p>
-
-    <div class="botones-navegacion">
-        <button class="btn-nav" onclick="mostrarPantalla('pagina2')">⬅ Índice</button>
-        <button class="btn-nav" onclick="mostrarPantalla('pagina5')">Siguiente ➔</button>
+    <div class="corazones-neon">
+        <span>♡</span>
+        <span>♥</span>
+        <span>♡</span>
+    </div>
+    <div class="zona-corvette-izq">
+        <img src="c6.png" alt="Corvette C6 Neón" class="imagen-c6-protagonista">
+    </div>
+    <div class="zona-texto-der">
+        <h2 class="titulo-corvette">CORVETTE C6 // NIVEL 22</h2>
+        <p class="frase-corvette">
+            "A toda velocidad hacia tus sueños, pero siempre con el corazón en el lugar correcto. Gracias por ser mi copiloto favorito en esta vida."
+        </p>
+        <div class="botones-navegacion">
+            <button class="btn-nav" onclick="mostrarPantalla('pagina2')">⬅ Índice</button>
+            <button class="btn-nav" onclick="mostrarPantalla('pagina5')">Siguiente ➔</button>
+        </div>
     </div>
 </div>
 </body>
