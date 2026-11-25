@@ -314,44 +314,13 @@ text-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
         </div>
     </div>
 
-    <!-- ================= CAPA DE TRANSICIÓN TRON ================= -->
-    <div id="transicion-tron" class="oculto">
-        <div class="estela-tron moto-azul"></div>
-        <div class="estela-tron moto-naranja"></div>
-    </div>
+    <!-- ========== CAPA DE TRANSICIÓN TRON ========== -->
+<div id="transicion-tron" class="oculto">
+    <div class="estela-tron moto-azul"></div>
+    <div class="estela-tron moto-naranja"></div>
+</div>
 
-    <!-- ================= LÓGICA EN JAVASCRIPT ================= -->
-    <script>
-        function irAPagina2() {
-            mostrarPantalla('pagina2');
-        }
-
-        function mostrarPantalla(idDestino) {
-            ['pagina1', 'pagina2', 'pagina3', 'pagina4', 'pagina5'].forEach(function(id) {
-                const el = document.getElementById(id);
-                if (el) el.classList.add('oculto');
-            });
-            const destino = document.getElementById(idDestino);
-            if (destino) destino.classList.remove('oculto');
-        }
-
-        function seleccionarOpcion(elementoClicado, numeroPagina) {
-            document.querySelectorAll('.lista-contenido li').forEach(function(item) {
-                item.classList.remove('seleccionado');
-            });
-            elementoClicado.classList.add('seleccionado');
-
-            setTimeout(function() {
-                const tron = document.getElementById('transicion-tron');
-                if (tron) tron.classList.remove('oculto');
-                setTimeout(function() {
-                    mostrarPantalla('pagina' + numeroPagina);
-                    if (tron) tron.classList.add('oculto');
-                }, 850);
-            }, 500);
-        }
-    </script>
-        <!-- Página 4: Exclusiva del Corvette C6 -->
+<!-- ========== PÁGINA 4: EXCLUSIVA DEL CORVETTE C6 ========== -->
 <div id="pagina4" class="pantalla-4 oculto">
     <div class="corazones-neon">
         <span>♡</span>
@@ -372,6 +341,37 @@ text-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
         </div>
     </div>
 </div>
+
+<!-- ========== LÓGICA EN JAVASCRIPT ========== -->
+<script>
+    function irAPagina2() {
+        mostrarPantalla('pagina2');
+    }
+
+    function mostrarPantalla(idDestino) {
+        ['pagina1', 'pagina2', 'pagina3', 'pagina4', 'pagina5'].forEach(function(id) {
+            const el = document.getElementById(id);
+            if (el) el.classList.add('oculto');
+        });
+        const destino = document.getElementById(idDestino);
+        if (destino) destino.classList.remove('oculto');
+    }
+
+    function seleccionarOpcion(elementoClicado, numeroPagina) {
+        document.querySelectorAll('.lista-contenido li').forEach(function(item) {
+            item.classList.remove('seleccionado');
+        });
+        elementoClicado.classList.add('seleccionado');
+
+        setTimeout(function() {
+            const tron = document.getElementById('transicion-tron');
+            if (tron) tron.classList.remove('oculto');
+            setTimeout(function() {
+                mostrarPantalla('pagina' + numeroPagina);
+                if (tron) tron.classList.add('oculto');
+            }, 850);
+        }, 500);
+    }
+</script>
 </body>
 </html>
-    
