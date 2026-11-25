@@ -8,13 +8,18 @@
 <link rel="preconnect" href="https://gstatic.com" crossorigin>
 <link href="https://googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
-    /* Transición Motos TRON */
-#transicion-tron { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(5, 10, 15, 0.92); z-index: 9999; pointer-events: none; overflow: hidden; }
-.estela-tron { position: absolute; height: 6px; width: 150%; border-radius: 3px; opacity: 0; }
-.moto-azul { top: 38%; left: -150%; background: linear-gradient(90deg, transparent, #00f3ff, #fff); box-shadow: 0 0 25px #00f3ff; animation: cruzarDer 0.9s ease-out forwards; }
-.moto-naranja { top: 62%; right: -150%; background: linear-gradient(-90deg, transparent, #ff5500, #fff); box-shadow: 0 0 25px #ff5500; animation: cruzarIzq 0.9s ease-out 0.1s forwards; }
-@keyframes cruzarDer { 0% { left: -150%; opacity: 1; } 100% { left: 100%; opacity: 0; } }
-@keyframes cruzarIzq { 0% { right: -150%; opacity: 1; } 100% { right: 100%; opacity: 0; } }
+
+        /* Transición Motos TRON con silueta SVG */
+#transicion-tron { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(4, 8, 14, 0.94); z-index: 9999; pointer-events: none; overflow: hidden; }
+.contenedor-moto { position: absolute; display: flex; align-items: center; }
+.moto-azul-wrap { top: 32%; left: -120vw; animation: pasarDerecha 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.moto-naranja-wrap { top: 58%; right: -120vw; flex-direction: row-reverse; animation: pasarIzquierda 0.95s cubic-bezier(0.22, 1, 0.36, 1) 0.08s forwards; }
+.estela-luz { width: 85vw; height: 6px; border-radius: 3px; }
+.estela-azul { background: linear-gradient(90deg, transparent, #00f3ff); box-shadow: 0 0 20px #00f3ff, 0 0 35px #00f3ff; margin-right: -8px; }
+.estela-naranja { background: linear-gradient(-90deg, transparent, #ff5500); box-shadow: 0 0 20px #ff5500, 0 0 35px #ff5500; margin-left: -8px; }
+.svg-moto { width: 110px; height: auto; filter: drop-shadow(0 0 10px currentColor); }
+@keyframes pasarDerecha { 0% { transform: translateX(0); } 100% { transform: translateX(240vw); } }
+@keyframes pasarIzquierda { 0% { transform: translateX(0); } 100% { transform: translateX(-240vw); } }
 
 /* Página 3: Marco Reus (2/5 Izquierda) */
 .pantalla-3 { width: 100vw; min-height: 100vh; padding: 40px 50px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: 40px; animation: aparecer 0.8s ease-out; }
@@ -313,11 +318,35 @@ text-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
         </div>
     </div>
 
-    <!-- ========== CAPA DE TRANSICIÓN TRON ========== -->
+<!-- Capa de transición TRON con motos SVG -->
 <div id="transicion-tron" class="oculto">
-    <div class="estela-tron moto-azul"></div>
-    <div class="estela-tron moto-naranja"></div>
+    <!-- Moto Azul Cian (Izquierda a Derecha) -->
+    <div class="contenedor-moto moto-azul-wrap" style="color: #00f3ff;">
+        <div class="estela-luz estela-azul"></div>
+        <svg class="svg-moto" viewBox="0 0 120 50" fill="none" stroke="currentColor" stroke-width="3">
+            <circle cx="24" cy="34" r="12" />
+            <circle cx="24" cy="34" r="5" />
+            <circle cx="96" cy="34" r="12" />
+            <circle cx="96" cy="34" r="5" />
+            <path d="M24 22 L48 12 L78 14 L96 22" stroke-linecap="round" />
+            <path d="M36 34 L84 34 L92 24 L62 18 L40 24 Z" fill="rgba(0, 243, 255, 0.25)" />
+        </svg>
+    </div>
+
+    <!-- Moto Naranja (Derecha a Izquierda) -->
+    <div class="contenedor-moto moto-naranja-wrap" style="color: #ff5500;">
+        <div class="estela-luz estela-naranja"></div>
+        <svg class="svg-moto" viewBox="0 0 120 50" fill="none" stroke="currentColor" stroke-width="3" style="transform: scaleX(-1);">
+            <circle cx="24" cy="34" r="12" />
+            <circle cx="24" cy="34" r="5" />
+            <circle cx="96" cy="34" r="12" />
+            <circle cx="96" cy="34" r="5" />
+            <path d="M24 22 L48 12 L78 14 L96 22" stroke-linecap="round" />
+            <path d="M36 34 L84 34 L92 24 L62 18 L40 24 Z" fill="rgba(255, 85, 0, 0.25)" />
+        </svg>
+    </div>
 </div>
+    
 
 <!-- Página 4 -->
 <div id="pagina4" class="pantalla-4 oculto">
@@ -362,13 +391,20 @@ text-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
         });
         elementoClicado.classList.add('seleccionado');
 
-        setTimeout(function() {
+                setTimeout(function() {
             const tron = document.getElementById('transicion-tron');
-            if (tron) tron.classList.remove('oculto');
+            if (tron) {
+                tron.classList.remove('oculto');
+                tron.querySelectorAll('.contenedor-moto').forEach(m => {
+                    m.style.animation = 'none';
+                    m.offsetHeight;
+                    m.style.animation = '';
+                });
+            }
             setTimeout(function() {
                 mostrarPantalla('pagina' + numeroPagina);
                 if (tron) tron.classList.add('oculto');
-            }, 850);
+            }, 900);
         }, 500);
     }
 </script>
