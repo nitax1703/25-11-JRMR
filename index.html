@@ -75,7 +75,7 @@
 .grafica-velas { display: flex; align-items: flex-end; justify-content: center; gap: 20px; height: 175px; margin: 25px 0; padding: 20px 35px; border-bottom: 2px solid #333; border-left: 2px solid #333; }
 .vela { position: relative; width: 18px; border-radius: 2px; animation: crecerVela 1.2s ease-out forwards; }
 .vela::before { content: ""; position: absolute; left: 50%; transform: translateX(-50%); width: 2px; background: inherit; top: -15px; bottom: -15px; }
-.vela.roja { background-color: #ff3355; box-shadow: 0 0 12px rgba(255, 51, 85, 0.45); }
+.vela.morada { background-color: #b44cff; box-shadow: 0 0 14px rgba(180, 76, 255, 0.55); }
 .vela.verde { background-color: #00ff66; box-shadow: 0 0 14px rgba(0, 255, 102, 0.55); }
 .frase-metafora { max-width: 520px; font-size: 1.05rem; color: #dddddd; line-height: 1.7; margin-bottom: 18px; }
 .frase-especial { max-width: 520px; font-size: 1.15rem; color: #ff6688; font-weight: 600; text-shadow: 0 0 12px rgba(255, 102, 136, 0.35); margin-bottom: 26px; }
@@ -448,16 +448,16 @@ text-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
     <h2 class="titulo-trading">NIVEL 22: TENDENCIA ALCISTA 📈</h2>
 
     <div class="grafica-velas">
-        <div class="vela roja" style="height: 45px;"></div>
+        <div class="vela morada" style="height: 45px;"></div>
         <div class="vela verde" style="height: 75px;"></div>
-        <div class="vela roja" style="height: 55px;"></div>
+        <div class="vela morada" style="height: 55px;"></div>
         <div class="vela verde" style="height: 105px;"></div>
         <div class="vela verde" style="height: 135px;"></div>
         <div class="vela verde" style="height: 165px;"></div>
     </div>
 
     <p class="frase-metafora">
-        "Incluso después de los retrocesos, los mejores gráficos siempre marcan nuevos máximos. Que este año sea tu mejor racha en todo lo que te propongas."
+        "El mercado podrá bajar, pero mi amor por ti nunca. Que este año sea tu mejor racha en todo lo que te propongas."
     </p>
 
     <p class="frase-especial">
@@ -468,7 +468,7 @@ text-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
         <button class="btn-nav" onclick="mostrarPantalla('pagina2')">⬅ Índice</button>
         <button class="btn-nav" onclick="mostrarPantalla('pagina1')">↻ Portada</button>
     </div>
-</div> 
+</div>
 <!-- ========== LÓGICA EN JAVASCRIPT ========== -->
 <script>
     function irAPagina2() {
