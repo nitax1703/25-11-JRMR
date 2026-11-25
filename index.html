@@ -58,6 +58,15 @@
 .zona-renekton-der { flex: 1; display: flex; justify-content: center; align-items: center; }
 .imagen-renekton { width: 100%; max-width: 460px; max-height: 75vh; object-fit: contain; filter: drop-shadow(0 0 22px rgba(0, 230, 118, 0.35)); }
 @media (max-width: 768px) { .pantalla-5 { flex-direction: column-reverse; padding: 40px 20px; } .zona-texto-5 { text-align: center; } }
+
+        /* Página 6: Transformers - Sideswipe / Mirage (Imagen izquierda | Texto derecha) */
+.pantalla-6 { width: 100vw; min-height: 100vh; padding: 40px 6%; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: 40px; animation: aparecer 0.8s ease-out; }
+.zona-transformer-izq { flex: 1; display: flex; justify-content: center; align-items: center; }
+.imagen-transformer { width: 100%; max-width: 450px; max-height: 75vh; object-fit: contain; filter: drop-shadow(0 0 22px rgba(0, 195, 255, 0.4)); }
+.zona-texto-6 { flex: 1; text-align: left; max-width: 500px; }
+.titulo-transformer { font-family: 'Orbitron', sans-serif; font-size: 1.9rem; color: #00c3ff; letter-spacing: 2px; text-transform: uppercase; text-shadow: 0 0 16px rgba(0, 195, 255, 0.45); margin: 0 0 16px 0; }
+.frase-transformer { font-size: 1.05rem; color: #dddddd; line-height: 1.7; margin-bottom: 28px; }
+@media (max-width: 768px) { .pantalla-6 { flex-direction: column; padding: 40px 20px; } .zona-texto-6 { text-align: center; } }
         
         /* Configuración general */
         body {
@@ -394,6 +403,25 @@ text-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
 
     <div class="zona-renekton-der">
         <img src="renekton.png" alt="Renekton" class="imagen-renekton">
+    </div>
+</div>
+
+    <!-- ========== PÁGINA 6: TRANSFORMERS ========== -->
+<div id="pagina6" class="pantalla-6 oculto">
+    <div class="zona-transformer-izq">
+        <img src="transformer.png" alt="Transformer" class="imagen-transformer">
+    </div>
+
+    <div class="zona-texto-6">
+        <h2 class="titulo-transformer">MÁS DE LO QUE EL OJO VE</h2>
+        <p class="frase-transformer">
+            "Agilidad, estilo y la capacidad de adaptarse a cualquier situación sin perder su esencia. Siempre tienes ese algo extra que sorprende y te hace único."
+        </p>
+
+        <div class="botones-navegacion">
+            <button class="btn-nav" onclick="mostrarPantalla('pagina2')">⬅ Índice</button>
+            <button class="btn-nav" onclick="mostrarPantalla('pagina7')">Siguiente ➔</button>
+        </div>
     </div>
 </div>
     
